@@ -21,12 +21,11 @@
 
     <!-- VUE START -->
     <div id="root">
-        <ul v-if="">
+        <ul v-if="mailArray.length == 10">
             <li v-for="email in mailArray">
                 {{email}}   
             </li>
         </ul>
-        <button @click="generateMail">Generate Email</button>
     </div>
     <!-- VUE END -->
 
