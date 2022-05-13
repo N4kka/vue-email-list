@@ -21,9 +21,9 @@
 
     <!-- VUE START -->
     <div id="root">
-        <ul>
-            <li>
-                {{email}} 
+        <ul v-if="">
+            <li v-for="email in mailArray">
+                {{email}}   
             </li>
         </ul>
         <button @click="generateMail">Generate Email</button>

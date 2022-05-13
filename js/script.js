@@ -9,45 +9,22 @@ const app = new Vue (
     {
         el: '#root',
         data: {
-            email: '',
             mailArray: [],
         },
         created() {
-            axios
-            .get('https://flynn.boolean.careers/exercises/api/random/mail',{
-            }) 
-            .then((resp) => {
-            this.email = resp.data.response;
-            })
+            this.generateMail();
         },
         methods: {
-            generateMail(resp) {
-                for(let i = 0; mailArray.length = 10; i++) {
-                    this.mailArray.push(this.email)
+            generateMail() {
+                for(let i = 0; i < 10; i++) {
+                    axios
+                    .get('https://flynn.boolean.careers/exercises/api/random/mail',{}) 
+                    .then((resp) => {
+                        const email = resp.data.response;
+                        this.mailArray.push(email);
+                    })
                 }
             }
         }
     }
 )
-
-//EXAMPLE
-// const app = new Vue(
-    // {
-        // el: '#root',
-        // data: {
-            // number: null
-        // },
-        // created() {
-            // this.generateNumber();
-        // },
-        // methods: {
-            // generateNumber() {
-                // axios
-                // .get('https://ﬂynn.boolean.careers/exercises/api/random/int')
-                // .then((resp) => {
-                    // this.number = resp.data.response;
-                // });
-            // }
-        // }
-    // }
-// ) 
